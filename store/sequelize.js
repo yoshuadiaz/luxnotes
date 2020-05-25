@@ -27,7 +27,7 @@ async function get (model, id) {
   return store[model].findByPk(id)
 }
 async function insert (model, data) {
-  return store[model].insert(data)
+  return store[model].create(data)
 }
 async function update (model, id, data) {
   return store[model].update({ ...data }, { where: { id } })
