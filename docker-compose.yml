@@ -19,7 +19,7 @@ services:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
-      POSTGRES_PORT: ${DB_PORT}
+      POSTGRES_PORT: 5432
     volumes:
       - luxelare-notes-db-data:/var/lib/postgresql/data
 
