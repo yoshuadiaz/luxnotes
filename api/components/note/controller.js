@@ -32,8 +32,13 @@ module.exports = (store) => {
     return note
   }
 
+  async function remove (id) {
+    return store.remove(MODEL, id)
+  }
+
   return {
     list,
-    insert
+    insert,
+    remove
   }
 }
