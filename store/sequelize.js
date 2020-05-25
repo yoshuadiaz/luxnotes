@@ -37,7 +37,7 @@ async function remove (model, id) {
   await instance.destroy()
   return true
 }
-async function query (model, where, paginationConfig, include = {}) {
+async function query (model, where, paginationConfig, include = null) {
   const {
     itemsPerPage = DEFAULTS.ITEMS_PER_PAGE,
     currentPage = DEFAULTS.CURRENT_PAGE
