@@ -5,11 +5,13 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
-    expose:
-      - "${API_PORT}"
+    ports:
+      - "${API_PORT}:${API_PORT}"
     command: "npm start"
+    links:
+      - database:postgres
 
-  postgresql:
+  database:
     image: "postgres"
     ports:
       - "${DB_PORT}:5432"

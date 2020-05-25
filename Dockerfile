@@ -5,4 +5,3 @@ RUN yarn install
 COPY public ./usr/src/app/public
 COPY . .
 CMD ["yarn", "start"]
-EXPOSE 3300

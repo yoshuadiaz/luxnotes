@@ -4,7 +4,7 @@ const dbConfig = {
   username: process.env.DB_USERNAME || null,
   password: process.env.DB_PASSWORD || null,
   database: process.env.DB_DATABASE || 'DBDemo',
-  host: process.env.DB_HOST || '127.0.0.1',
+  host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || '5432',
   dialect: process.env.DB_DIALECT || 'sqlite'
 }
