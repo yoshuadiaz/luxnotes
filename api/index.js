@@ -15,7 +15,7 @@ app.use('/static', express.static(staticRoute))
 
 app.use('/api/note', note)
 
-// app.all('*', notFound)
+app.all('*', notFound)
 app.use(errors)
 
 app.listen(config.api.port, () => {
