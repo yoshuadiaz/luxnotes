@@ -6,7 +6,12 @@ module.exports = (store) => {
     return store.list(MODEL, { itemsPerPage, currentPage })
   }
 
+  async function insert (data) {
+    return store.insert(MODEL, data)
+  }
+
   return {
-    list
+    list,
+    insert
   }
 }
