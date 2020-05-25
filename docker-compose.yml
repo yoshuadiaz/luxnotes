@@ -1,0 +1,25 @@
+version: "3"
+services:
+  node:
+    build: .
+    working_dir: /app
+    volumes:
+      - ./:/app
+    expose:
+      - "${API_PORT}"
+    command: "npm start"
+
+  postgresql:
+    image: "postgres"
+    ports:
+      - "${DB_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_PORT: ${DB_PORT}
+    volumes:
+      - luxelare-notes-db-data:/var/lib/postgresql/data
+
+volumes:
+  luxelare-notes-db-data:

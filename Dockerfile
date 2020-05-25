@@ -1,8 +1,8 @@
 FROM node:12-alpine
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install
-COPY public ./app/public
-COPY . ./
-EXPOSE 3333
-RUN yarn start
+COPY public ./usr/src/app/public
+COPY . .
+CMD ["yarn", "start"]
+EXPOSE 3300

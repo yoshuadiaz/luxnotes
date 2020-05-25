@@ -18,6 +18,6 @@ app.use('/api/note', note)
 app.all('*', notFound)
 app.use(errors)
 
-app.listen(config.api.port, () => {
+app.listen(config.api.port, '0.0.0.0', () => {
   console.log(`Listen on http://localhost:${config.api.port}`)
 })
