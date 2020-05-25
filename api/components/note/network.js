@@ -9,7 +9,7 @@ router.get('/', list)
 router.post('/', uploads.array('files', 12), insert)
 
 function list (req, res, next) {
-  Controller.list(req.body, req.query)
+  Controller.list(req.body)
     .then((list) => response.success(req, res, list, 200))
     .catch(next)
 }

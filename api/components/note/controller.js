@@ -3,13 +3,14 @@ const MODEL = 'Note'
 const FILE = 'File'
 
 module.exports = (store) => {
-  async function list (body, query) {
-    const { itemsPerPage, currentPage } = body
-    if (query.entity_id) {
+  async function list (body) {
+    const { itemsPerPage, currentPage, entityId = null } = body
+    if (entityId) {
       return store.query(
         MODEL,
-        { entity_id: query.entity_id },
-        { itemsPerPage, currentPage }
+        { entity_id: entityId },
+        { itemsPerPage, currentPage },
+        ['files']
       )
     }
     return store.list(MODEL, { itemsPerPage, currentPage })

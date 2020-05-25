@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     entity_id: DataTypes.UUID
   }, {})
   Note.associate = function (models) {
-    // associations can be defined here
+    Note.hasMany(models.File, {
+      foreignKey: 'note_id',
+      as: 'files'
+    })
   }
   return Note
 }

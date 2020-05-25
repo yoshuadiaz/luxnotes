@@ -20,7 +20,8 @@ async function list (model, paginationConfig) {
   const offset = currentPage <= 1 ? 0 : (currentPage - 1) * itemsPerPage
   return store[model].findAndCountAll({
     limit: itemsPerPage,
-    offset
+    offset,
+    distinct: true
   }).then(({ count, rows }) => pagination(count, rows, itemsPerPage, currentPage))
 }
 async function get (model, id) {
@@ -42,9 +43,13 @@ async function query (model, where, paginationConfig, include = null) {
     itemsPerPage = DEFAULTS.ITEMS_PER_PAGE,
     currentPage = DEFAULTS.CURRENT_PAGE
   } = paginationConfig
+  const offset = currentPage <= 1 ? 0 : (currentPage - 1) * itemsPerPage
   return store[model].findAndCountAll({
     where,
-    include
+    include,
+    limit: itemsPerPage,
+    offset,
+    distinct: true
   }).then(({ count, rows }) => pagination(count, rows, itemsPerPage, currentPage))
 }
 
