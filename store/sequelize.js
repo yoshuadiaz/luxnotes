@@ -38,7 +38,10 @@ async function remove (model, id) {
   return true
 }
 async function query (model, where, paginationConfig, include = {}) {
-  const { itemsPerPage = 5, currentPage = 1 } = paginationConfig
+  const {
+    itemsPerPage = DEFAULTS.ITEMS_PER_PAGE,
+    currentPage = DEFAULTS.CURRENT_PAGE
+  } = paginationConfig
   return store[model].findAndCountAll({
     where,
     include
