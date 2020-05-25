@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon api/index.js",
+    "migrations:run": "sequelize-cli db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
