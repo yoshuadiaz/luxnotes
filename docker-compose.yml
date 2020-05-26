@@ -7,7 +7,6 @@ services:
       - ./:/app
     ports:
       - "${API_PORT}:${API_PORT}"
-    command: "npx sequelize db:migrate"
     command: "npm start"
     links:
       - database:postgres
