@@ -7,6 +7,7 @@ services:
       - ./:/app
     ports:
       - "${API_PORT}:${API_PORT}"
+    command: "npx sequelize db:migrate"
     command: "npm start"
     links:
       - database:postgres
@@ -14,7 +15,7 @@ services:
   database:
     image: "postgres"
     ports:
-      - "${DB_PORT}:5432"
+      - "${DB_PORT}:${DB_PORT}"
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}

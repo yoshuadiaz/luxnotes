@@ -15,12 +15,10 @@ module.exports = {
   },
   sequelize: {
     development: {
-      ...dbConfig,
-      database: `${dbConfig.database}_development`
+      ...dbConfig
     },
     test: {
-      ...dbConfig,
-      database: `${dbConfig.database}_test`
+      ...dbConfig
     },
     production: { ...dbConfig, logging: false }
   }
