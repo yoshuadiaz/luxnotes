@@ -16,9 +16,23 @@ This project manage notes by entity to a Covid-19 Dashboard
   ```
 
 ## How to run
-```
+
+You can run directly or with docker-compose
+
+```bash
   npm start
+
+  or
+
+  docker-compose up -d
 ```
+
+If you need to run some command in the docker container you need to run
+
+```bash
+  docker exec -it <container_name> sh
+```
+
 ## API Docs
 
 Check docs [here!](https://documenter.getpostman.com/view/1023966/SztA7UB2?version=latest)
